@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/*
+  Light-only palette.
+  Accent: #E6CFA1 (warm tan) + two neutrals: warm paper background, warm near-black ink.
+*/
+:root {
+  --background: #faf8f4;
+  --surface: #ffffff;
+  --foreground: #1c1a17;
+  --muted: #6b655c;
+  --border: #e8e2d6;
+  --accent: #e6cfa1;
+  --accent-strong: #b08d4f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
