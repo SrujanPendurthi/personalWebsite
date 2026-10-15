@@ -67,6 +67,7 @@ export type Project = {
   stack: string[];
   period: string;
   highlights: string[];
+  private?: boolean;
 };
 
 export const featuredProjects: Project[] = [
@@ -74,6 +75,7 @@ export const featuredProjects: Project[] = [
     name: "TranscriptFlow",
     stack: ["Go", "Python", "React", "PostgreSQL", "Redis", "Docker"],
     period: "May 2025 – Present",
+    private: true,
     highlights: [
       "YouTube transcript SaaS in Go (Chi) + React with a 3-layer pipeline: Redis cache, YouTube caption scraping, and yt-dlp + Faster-Whisper audio fallback.",
       "Dual auth — JWT (plan-gated) for web sessions and SHA-256-hashed developer API keys, both resolved via Chi middleware.",
@@ -85,6 +87,7 @@ export const featuredProjects: Project[] = [
     name: "reDoors",
     stack: ["Go", "React", "PostgreSQL", "Redis", "Docker"],
     period: "Sept. 2025 – Present",
+    private: true,
     highlights: [
       "P2P outdoor gear marketplace in Go (Chi) + React with listing creation, PostgreSQL tsvector full-text search, and condition/price filtering.",
       "Real-time buyer–seller chat via Redis Pub/Sub + WebSocket relay, with history in PostgreSQL and unread counts cached in Redis.",

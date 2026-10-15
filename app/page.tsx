@@ -13,13 +13,13 @@ export default function Home() {
         <Image
           src="/srujan.png"
           alt={profile.name}
-          width={64}
-          height={64}
+          width={96}
+          height={96}
           priority
-          className="rounded-full border border-border bg-surface [image-rendering:pixelated]"
+          className="pixel-frame m-1 bg-surface [image-rendering:pixelated]"
         />
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <h1 className="text-lg sm:text-2xl">
             {profile.name}
           </h1>
           <p className="mt-1 font-mono text-sm text-accent-strong">
@@ -30,12 +30,12 @@ export default function Home() {
       </section>
 
       {/* Quick links */}
-      <div className="flex flex-wrap gap-3 text-sm">
+      <div className="flex flex-wrap gap-4 text-sm">
         <a
           href={profile.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 transition-colors hover:bg-accent/30"
+          className="inline-flex items-center gap-2 pixel-btn px-3 py-1.5"
         >
           <Github size={15} /> GitHub
         </a>
@@ -43,13 +43,13 @@ export default function Home() {
           href={profile.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 transition-colors hover:bg-accent/30"
+          className="inline-flex items-center gap-2 pixel-btn px-3 py-1.5"
         >
           <Linkedin size={15} /> LinkedIn
         </a>
         <a
           href={`mailto:${profile.email}`}
-          className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 transition-colors hover:bg-accent/30"
+          className="inline-flex items-center gap-2 pixel-btn px-3 py-1.5"
         >
           <Mail size={15} /> Email
         </a>
@@ -58,12 +58,12 @@ export default function Home() {
       {/* Experience */}
       <section className="flex flex-col gap-6">
         <div className="flex items-baseline justify-between">
-          <h2 className="font-mono text-xs font-semibold uppercase tracking-widest text-muted">
+          <h2 className="text-xs uppercase tracking-widest text-muted">
             Experience
           </h2>
           <Link
             href="/about"
-            className="inline-flex items-center gap-1 text-sm text-accent-strong transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1 text-sm text-accent-strong hover:text-foreground hover:underline"
           >
             Full background <ArrowRight size={14} />
           </Link>
@@ -74,12 +74,12 @@ export default function Home() {
       {/* Featured projects */}
       <section className="flex flex-col gap-6">
         <div className="flex items-baseline justify-between">
-          <h2 className="font-mono text-xs font-semibold uppercase tracking-widest text-muted">
+          <h2 className="text-xs uppercase tracking-widest text-muted">
             Featured Projects
           </h2>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-1 text-sm text-accent-strong transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1 text-sm text-accent-strong hover:text-foreground hover:underline"
           >
             All repositories <ArrowRight size={14} />
           </Link>
@@ -88,10 +88,15 @@ export default function Home() {
           {featuredProjects.map((project) => (
             <article
               key={project.name}
-              className="rounded-lg border border-border bg-surface p-5"
+              className="pixel-frame bg-surface p-5"
             >
               <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                <h3 className="font-medium text-foreground">{project.name}</h3>
+                <h3 className="text-xs text-foreground">
+                  {project.name}
+                  {project.private && (
+                    <span className="ml-3 font-mono text-xs text-muted">[private repo]</span>
+                  )}
+                </h3>
                 <span className="shrink-0 font-mono text-xs text-muted">
                   {project.period}
                 </span>
@@ -103,7 +108,7 @@ export default function Home() {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded border border-border px-2 py-0.5 font-mono text-xs text-muted"
+                    className="border-2 border-border/50 px-2 py-0.5 font-mono text-xs text-muted"
                   >
                     {tech}
                   </span>

@@ -15,7 +15,7 @@ const Section = ({
   children: React.ReactNode;
 }) => (
   <section className="flex flex-col gap-6">
-    <h2 className="font-mono text-xs font-semibold uppercase tracking-widest text-muted">
+    <h2 className="text-xs uppercase tracking-widest text-muted">
       {title}
     </h2>
     {children}
@@ -26,7 +26,7 @@ export default function About() {
   return (
     <div className="flex flex-col gap-16">
       <header className="flex flex-col gap-3">
-        <h1 className="text-2xl font-semibold tracking-tight">About</h1>
+        <h1 className="text-lg sm:text-2xl">About</h1>
         <p className="max-w-prose leading-relaxed text-muted">
           I&apos;m {profile.name}, an Artificial Intelligence student at Carnegie
           Mellon University focused on machine learning and backend systems. I
@@ -37,7 +37,7 @@ export default function About() {
       </header>
 
       <Section title="Education">
-        <div className="border-l-2 border-border pl-5">
+        <div className="border-l-4 border-border pl-5">
           <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
             <h3 className="font-medium text-foreground">{education.school}</h3>
             <span className="shrink-0 font-mono text-xs text-muted">
@@ -67,7 +67,7 @@ export default function About() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded border border-border bg-surface px-2 py-0.5 font-mono text-xs text-muted"
+                    className="border-2 border-border/50 bg-surface px-2 py-0.5 font-mono text-xs text-muted"
                   >
                     {item}
                   </span>
