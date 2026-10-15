@@ -1,17 +1,13 @@
 @import "tailwindcss";
 
-/*
-  Light-only palette.
-  Accent: #E6CFA1 (warm tan) + two neutrals: warm paper background, warm near-black ink.
-*/
 :root {
-  --background: #faf8f4;
-  --surface: #ffffff;
-  --foreground: #1c1a17;
-  --muted: #6b655c;
-  --border: #e8e2d6;
+  --background: #14161f;
+  --surface: #1e2130;
+  --foreground: #e6cfa1;
+  --muted: #a89c80;
+  --border: #e6cfa1;
   --accent: #e6cfa1;
-  --accent-strong: #b08d4f;
+  --accent-strong: #f2dfb4;
 }
 
 @theme inline {
@@ -22,12 +18,39 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-geist-mono);
   --font-mono: var(--font-geist-mono);
+  --font-pixel: var(--font-pixel);
+}
+
+@utility pixel-frame {
+  box-shadow:
+    0 -4px 0 0 var(--border),
+    0 4px 0 0 var(--border),
+    -4px 0 0 0 var(--border),
+    4px 0 0 0 var(--border);
+}
+
+@utility pixel-btn {
+  background: var(--surface);
+  box-shadow:
+    0 -3px 0 0 var(--border),
+    0 3px 0 0 var(--border),
+    -3px 0 0 0 var(--border),
+    3px 0 0 0 var(--border);
+  &:hover {
+    background: var(--accent);
+    color: var(--background);
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), ui-monospace, monospace;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-pixel), ui-monospace, monospace;
+  line-height: 1.5;
 }
