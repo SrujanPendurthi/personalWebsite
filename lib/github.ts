@@ -1,4 +1,4 @@
-import { profile } from "./data";
+import { profile } from "./data.ts";
 
 export type Repo = {
   id: number;
@@ -12,11 +12,17 @@ export type Repo = {
   fork: boolean;
   archived: boolean;
   updated_at: string;
+  pushed_at: string;
   topics: string[];
 };
 
+export const selectRepos = (repos: Repo[]): Repo[] =>
+  repos
+    .filter((r) => !r.fork && !r.archived && r.description?.trim())
+    .sort((a, b) => b.pushed_at.localeCompare(a.pushed_at));
+
 /**
- * Fetch the user's public repos, newest-updated first.
+ * Fetch the user's public repos, most recently pushed first.
  * Token is read server-side only (GITHUB_TOKEN) to raise the rate limit;
  * unauthenticated requests still work but are limited to 60/hour per IP.
  * Cached for 1 hour via Next's fetch cache to stay well under GitHub limits.
@@ -36,8 +42,5 @@ export const getRepos = async (): Promise<Repo[]> => {
 
   if (!res.ok) return [];
 
-  const repos = (await res.json()) as Repo[];
-  return repos
-    .filter((repo) => !repo.fork && !repo.archived)
-    .sort((a, b) => b.stargazers_count - a.stargazers_count);
+  return selectRepos((await res.json()) as Repo[]);
 };

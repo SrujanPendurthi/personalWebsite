@@ -15,27 +15,27 @@ export default async function Projects() {
   return (
     <div className="flex flex-col gap-10">
       <header className="flex flex-col gap-3">
-        <h1 className="text-2xl font-semibold tracking-tight">Projects</h1>
+        <h1 className="text-lg sm:text-2xl">Projects</h1>
         <p className="max-w-prose leading-relaxed text-muted">
-          Active public repositories, pulled live from GitHub and sorted by
-          stars. Forks and archived repos are filtered out.
+          Public repositories pulled live from GitHub, newest push first.
+          Forks, archived and undescribed repos are hidden.
         </p>
       </header>
 
       {repos.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-border p-8 text-center text-sm text-muted">
+        <div className="pixel-frame p-8 text-center text-sm text-muted">
           <p>Couldn&apos;t load repositories right now.</p>
           <a
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-2 text-accent-strong transition-colors hover:text-foreground"
+            className="mt-3 inline-flex items-center gap-2 text-accent-strong hover:text-foreground hover:underline"
           >
             <Github size={15} /> View on GitHub
           </a>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {repos.map((repo) => (
             <ProjectCard key={repo.id} repo={repo} />
           ))}
