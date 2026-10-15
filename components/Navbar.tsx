@@ -15,7 +15,7 @@ const Navbar = () => (
       <Link href="/" className="font-pixel text-xs">
         srujan<span className="text-accent-strong">.</span>
       </Link>
-      <div className="flex items-center gap-5 text-sm">
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
         {links.map((link) => (
           <Link
             key={link.href}
