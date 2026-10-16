@@ -8,15 +8,14 @@ const repo = (o: Partial<Repo>): Repo => ({
   updated_at: "", pushed_at: "2026-01-01T00:00:00Z", topics: [], ...o,
 });
 
-test("drops forks, archived, and empty/whitespace descriptions", () => {
+test("drops forks and archived, keeps repos without a description", () => {
   const out = selectRepos([
     repo({ id: 1, fork: true }),
     repo({ id: 2, archived: true }),
     repo({ id: 3, description: null }),
-    repo({ id: 4, description: "   " }),
-    repo({ id: 5 }),
+    repo({ id: 4 }),
   ]);
-  assert.deepEqual(out.map((r) => r.id), [5]);
+  assert.deepEqual(out.map((r) => r.id).sort(), [3, 4]);
 });
 
 test("sorts by pushed_at descending", () => {

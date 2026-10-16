@@ -18,7 +18,7 @@ export default async function Projects() {
         <h1 className="text-lg sm:text-2xl">Projects</h1>
         <p className="max-w-prose leading-relaxed text-muted">
           Public repositories pulled live from GitHub, newest push first.
-          Forks, archived and undescribed repos are hidden.
+          Forks and archived repos are hidden.
         </p>
       </header>
 

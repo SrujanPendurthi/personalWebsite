@@ -31,9 +31,9 @@ const ProjectCard = ({ repo }: { repo: Repo }) => (
       </div>
     </div>
 
-    <p className="min-h-[2.5rem] text-sm leading-relaxed text-muted">
-      {repo.description ?? "No description provided."}
-    </p>
+    {repo.description && (
+      <p className="text-sm leading-relaxed text-muted">{repo.description}</p>
+    )}
 
     <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-muted">
       <ElementBadge language={repo.language} />

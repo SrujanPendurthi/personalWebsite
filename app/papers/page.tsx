@@ -14,11 +14,15 @@ export default function Papers() {
         <h1 className="text-lg sm:text-2xl">Papers</h1>
         <p className="max-w-prose leading-relaxed text-muted">Research I&apos;ve authored.</p>
       </header>
-      <div className="flex flex-col gap-6">
-        {papers.map((paper) => (
-          <PaperCard key={paper.title} paper={paper} />
-        ))}
-      </div>
+      {papers.length === 0 ? (
+        <p className="text-sm text-muted">Coming soon.</p>
+      ) : (
+        <div className="flex flex-col gap-6">
+          {papers.map((paper) => (
+            <PaperCard key={paper.title} paper={paper} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

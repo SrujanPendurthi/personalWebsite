@@ -119,13 +119,4 @@ export type Paper = {
   url?: string;
 };
 
-export const papers: Paper[] = [
-  {
-    title: "Real-Time ASL Gesture Translation with EEG-Integrated Multimodal Classification",
-    venue: "Arizona Association of the Deaf State Conference",
-    year: 2024,
-    authors: [profile.name],
-    summary:
-      "7-page paper. Real-time ASL gesture translation using OpenCV, MediaPipe and PyTorch; RNN classifier on temporal gesture sequences improved recognition accuracy by 25%; EEG data integrated for BCI-focused multimodal classification.",
-  },
-];
+export const papers: Paper[] = [];

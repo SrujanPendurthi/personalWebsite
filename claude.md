@@ -24,7 +24,7 @@ United States
 - `/` - Landing page: Brief, high-impact bio, featured projects, and quick links.
 - `/about` - Detailed background, technical skillset, and education.
 - `/projects` - Grid/list layout dynamically powered by the GitHub API.
-- `/papers` - Authored research papers, hand-written in `lib/data.ts`.
+- `/papers` - Authored research papers (hidden from nav, empty until first paper is added to `lib/data.ts`).
 - `/blog` - Markdown/MDX-driven technical blog for writing about systems, tooling, or engineering concepts.
 
 ### 2. Dynamic GitHub Integration

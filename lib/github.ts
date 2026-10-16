@@ -18,7 +18,7 @@ export type Repo = {
 
 export const selectRepos = (repos: Repo[]): Repo[] =>
   repos
-    .filter((r) => !r.fork && !r.archived && r.description?.trim())
+    .filter((r) => !r.fork && !r.archived)
     .sort((a, b) => b.pushed_at.localeCompare(a.pushed_at));
 
 /**
