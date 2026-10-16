@@ -11,11 +11,11 @@ export default function Papers() {
   return (
     <div className="flex flex-col gap-10">
       <header className="flex flex-col gap-3">
-        <h1 className="text-lg sm:text-2xl">Papers</h1>
-        <p className="max-w-prose leading-relaxed text-muted">Research I&apos;ve authored.</p>
+        <h1 className="text-3xl uppercase sm:text-4xl">Papers</h1>
+        <p className="text-lg leading-relaxed text-muted">Research I&apos;ve authored.</p>
       </header>
       {papers.length === 0 ? (
-        <p className="text-sm text-muted">Coming soon.</p>
+        <p className="text-muted">Coming soon.</p>
       ) : (
         <div className="flex flex-col gap-6">
           {papers.map((paper) => (

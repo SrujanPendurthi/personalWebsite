@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Press_Start_2P } from "next/font/google";
+import { Press_Start_2P, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { profile } from "@/lib/data";
 
-const pixel = Press_Start_2P({
-  variable: "--font-pixel",
+const grotesk = Space_Grotesk({
+  variable: "--font-grotesk",
   subsets: ["latin"],
   weight: "400",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const pixel = Press_Start_2P({
+  variable: "--font-pixel",
   subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -30,15 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${pixel.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${grotesk.variable} ${pixel.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <Navbar />
-        <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12 sm:py-16">
-          {children}
-        </main>
+        <main className="mx-auto w-full max-w-[66ch] flex-1 px-6 py-16">{children}</main>
         <Footer />
       </body>
     </html>
