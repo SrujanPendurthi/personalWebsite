@@ -1,7 +1,7 @@
 # Project: Personal Portfolio Website
 
 ## Overview
-A high-performance, minimalist personal portfolio website for a software engineering student to showcase technical projects, blog posts, and professional experience. The design is simple, developer-centric, accessible, and optimized for speed. No animations. 
+A high-performance, minimalist personal portfolio website for a software engineering student to showcase technical projects, blog posts, and professional experience. The design is simple, developer-centric, accessible, and optimized for speed. No animations, except the interactive React Three Fiber "Portal of Power" hero on `/` (`components/hero/`), which must stay static under `prefers-reduced-motion` and fall back to the pixel avatar without WebGL. 
 
 Use this color(E6CFA1) and two other that ensure a good neutral color pallette.
 
