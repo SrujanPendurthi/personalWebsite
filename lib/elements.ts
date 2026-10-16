@@ -11,6 +11,10 @@ const COLORS: Record<Element, string> = {
   Undead: "#b0a3c9",
 };
 
+export const ELEMENTS = Object.keys(COLORS) as Element[];
+
+export const elementColor = (element: Element): string => COLORS[element];
+
 const BY_LANGUAGE: Record<string, Element> = {
   C: "Earth",
   "C++": "Earth",
