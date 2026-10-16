@@ -9,17 +9,17 @@ const links = [
 ];
 
 const Navbar = () => (
-  <header className="sticky top-0 z-10 border-b border-border bg-background/80 backdrop-blur">
-    <nav className="mx-auto flex h-14 max-w-3xl items-center justify-between px-6">
-      <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
+  <header className="sticky top-0 z-10 border-b-4 border-border bg-background">
+    <nav className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-y-2 px-6 py-3">
+      <Link href="/" className="font-pixel text-xs">
         srujan<span className="text-accent-strong">.</span>
       </Link>
-      <div className="flex items-center gap-5 text-sm">
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
         {links.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className="text-muted transition-colors hover:text-foreground"
+            className="text-muted hover:text-foreground hover:underline"
           >
             {link.label}
           </Link>
@@ -30,7 +30,7 @@ const Navbar = () => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          className="text-muted transition-colors hover:text-foreground"
+          className="text-muted hover:text-foreground hover:underline"
         >
           <Github size={18} />
         </a>
@@ -39,7 +39,7 @@ const Navbar = () => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          className="text-muted transition-colors hover:text-foreground"
+          className="text-muted hover:text-foreground hover:underline"
         >
           <Linkedin size={18} />
         </a>

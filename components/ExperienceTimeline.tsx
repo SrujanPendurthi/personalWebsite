@@ -11,7 +11,7 @@ const ExperienceTimeline = ({
     {items.map((exp) => (
       <li
         key={`${exp.company}-${exp.role}`}
-        className="border-l-2 border-border pl-5"
+        className="border-l-4 border-border pl-5"
       >
         <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
           <h3 className="font-medium text-foreground">
@@ -29,7 +29,7 @@ const ExperienceTimeline = ({
           {(compact ? exp.highlights.slice(0, 2) : exp.highlights).map(
             (point, i) => (
               <li key={i} className="flex gap-2">
-                <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-strong" />
+                <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 bg-accent-strong" />
                 <span>{point}</span>
               </li>
             ),
