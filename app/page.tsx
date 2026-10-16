@@ -26,6 +26,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <Link href="/resume" className="underline hover:text-muted">Resume</Link>
           <a href={`mailto:${profile.email}`} className="underline hover:text-muted">Email</a>
           <a href={profile.github} target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">GitHub</a>
           <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="underline hover:text-muted">LinkedIn</a>
