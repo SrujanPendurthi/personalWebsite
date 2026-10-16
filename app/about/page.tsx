@@ -1,33 +1,26 @@
 import type { Metadata } from "next";
 import { profile, education, experiences, skills } from "@/lib/data";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
+import SectionTitle from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
   title: "About",
   description: `Background, education, and technical skills of ${profile.name}.`,
 };
 
-const Section = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <section className="flex flex-col gap-6">
-    <h2 className="text-xs uppercase tracking-widest text-muted">
-      {title}
-    </h2>
+const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <section className="flex flex-col gap-8">
+    <SectionTitle>{title}</SectionTitle>
     {children}
   </section>
 );
 
 export default function About() {
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-20">
       <header className="flex flex-col gap-3">
-        <h1 className="text-lg sm:text-2xl">About</h1>
-        <p className="max-w-prose leading-relaxed text-muted">
+        <h1 className="text-3xl uppercase sm:text-4xl">About</h1>
+        <p className="text-lg leading-relaxed">
           I&apos;m {profile.name}, an Artificial Intelligence student at Carnegie
           Mellon University focused on machine learning and backend systems. I
           build agentic AI pipelines and full-stack products in Go and Python,
@@ -37,10 +30,10 @@ export default function About() {
       </header>
 
       <Section title="Education">
-        <div className="border-l-4 border-border pl-5">
+        <div>
           <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-            <h3 className="font-medium text-foreground">{education.school}</h3>
-            <span className="shrink-0 font-mono text-xs text-muted">
+            <h3 className="text-lg">{education.school}</h3>
+            <span className="shrink-0 text-sm text-muted">
               {education.period}
             </span>
           </div>
@@ -60,14 +53,14 @@ export default function About() {
               key={group.category}
               className="flex flex-col gap-2 sm:flex-row sm:gap-6"
             >
-              <dt className="shrink-0 font-mono text-xs uppercase tracking-wider text-accent-strong sm:w-40">
+              <dt className="shrink-0 text-sm uppercase tracking-wide text-muted sm:w-40">
                 {group.category}
               </dt>
               <dd className="flex flex-wrap gap-1.5">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="border-2 border-border/50 bg-surface px-2 py-0.5 font-mono text-xs text-muted"
+                    className="bg-surface px-2 py-0.5 text-sm"
                   >
                     {item}
                   </span>

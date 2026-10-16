@@ -2,12 +2,12 @@ import { FileText, ExternalLink } from "lucide-react";
 import type { Paper } from "@/lib/data";
 
 const PaperCard = ({ paper }: { paper: Paper }) => (
-  <article className="pixel-frame flex flex-col gap-3 bg-surface p-5">
-    <h3 className="text-xs text-foreground">{paper.title}</h3>
-    <p className="font-mono text-xs text-muted">
+  <article className="flex flex-col gap-2">
+    <h3 className="text-lg">{paper.title}</h3>
+    <p className="text-sm text-muted">
       {paper.authors.join(", ")} · {paper.venue} · {paper.year}
     </p>
-    <p className="text-sm leading-relaxed text-muted">{paper.summary}</p>
+    <p className="leading-relaxed text-muted">{paper.summary}</p>
     {(paper.pdf || paper.url) && (
       <div className="flex gap-4 text-sm">
         {paper.pdf && (

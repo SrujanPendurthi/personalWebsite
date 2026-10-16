@@ -1,49 +1,33 @@
-import { Star, GitFork, ExternalLink } from "lucide-react";
-import { Github } from "./icons";
-import ElementBadge from "./ElementBadge";
+import { Star, GitFork } from "lucide-react";
 import type { Repo } from "@/lib/github";
+import ElementBadge from "./ElementBadge";
+import PixelCover from "./PixelCover";
 
 const ProjectCard = ({ repo }: { repo: Repo }) => (
-  <article className="pixel-frame flex flex-col gap-3 bg-surface p-5">
-    <div className="flex items-start justify-between gap-4">
-      <h3 className="font-mono text-sm text-foreground">{repo.name}</h3>
-      <div className="flex items-center gap-2">
+  <article className="flex gap-5">
+    <PixelCover seed={repo.name} language={repo.language} className="w-24 shrink-0 self-start sm:w-32" />
+    <div className="flex min-w-0 flex-col gap-1.5">
+      <h3 className="break-words text-lg">
+        <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+          {repo.name}
+        </a>
         {repo.homepage && (
-          <a
-            href={repo.homepage}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${repo.name} live site`}
-            className="text-muted hover:text-foreground"
-          >
-            <ExternalLink size={16} />
+          <a href={repo.homepage} target="_blank" rel="noopener noreferrer" className="ml-3 text-sm text-muted underline">
+            live
           </a>
         )}
-        <a
-          href={repo.html_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${repo.name} on GitHub`}
-          className="text-muted hover:text-foreground"
-        >
-          <Github size={16} />
-        </a>
+      </h3>
+      {repo.description && <p className="leading-relaxed text-muted">{repo.description}</p>}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
+        <ElementBadge language={repo.language} />
+        <span className="inline-flex items-center gap-1">
+          <Star size={13} /> {repo.stargazers_count}
+        </span>
+        <span className="inline-flex items-center gap-1">
+          <GitFork size={13} /> {repo.forks_count}
+        </span>
+        <span>pushed {repo.pushed_at.slice(0, 10)}</span>
       </div>
-    </div>
-
-    {repo.description && (
-      <p className="text-sm leading-relaxed text-muted">{repo.description}</p>
-    )}
-
-    <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-muted">
-      <ElementBadge language={repo.language} />
-      <span className="inline-flex items-center gap-1">
-        <Star size={13} /> {repo.stargazers_count}
-      </span>
-      <span className="inline-flex items-center gap-1">
-        <GitFork size={13} /> {repo.forks_count}
-      </span>
-      <span>pushed {repo.pushed_at.slice(0, 10)}</span>
     </div>
   </article>
 );

@@ -1,9 +1,9 @@
 # Project: Personal Portfolio Website
 
 ## Overview
-A high-performance, minimalist personal portfolio website for a software engineering student to showcase technical projects, blog posts, and professional experience. The design is simple, developer-centric, accessible, and optimized for speed. No animations, except the interactive React Three Fiber "Portal of Power" hero on `/` (`components/hero/`), which must stay static under `prefers-reduced-motion` and fall back to the pixel avatar without WebGL. 
+A high-performance, minimalist personal portfolio website for a software engineering student to showcase technical projects, blog posts, and professional experience. The design is simple, developer-centric, accessible, and optimized for speed. No animations. Editorial layout (single 66ch column, Space Grotesk 400) with small pixel-art accents (pixel avatar, generated `PixelCover` SVGs, pixel arrows/bullets/divider). 
 
-Use this color(E6CFA1) and two other that ensure a good neutral color pallette.
+Use this color(E6CFA1) and two other that ensure a good neutral color pallette. Current: bg `#fffbf5`, ink `#2d1724`, accent `#E6CFA1` (light only).
 
 The following block should be the first thing someone should see when they land on the page. Along with the 'srujan.png'
 "
@@ -14,7 +14,7 @@ United States
 
 ## Tech Stack
 - **Framework:** Next.js (App Router, TypeScript)
-- **Styling:** Tailwind CSS (Dark mode optimized)
+- **Styling:** Tailwind CSS (light theme)
 
 ---
 
